@@ -28,7 +28,7 @@ class PostController extends Controller
     public function index()
     {
 
-        $posts = Post::orderBy('title', 'desc')->paginate(10);
+        $posts = Post::orderBy('id', 'desc')->paginate(10);
         return view('post.index')->with('posts', $posts);
     }
 
@@ -178,7 +178,7 @@ class PostController extends Controller
 
 
         $post->save();
-        return "<button onclick=\"getMessagem{$post->id}()\" class=\"btn btn-danger\">".$post->countLikes.' likes'."</button>";
+        return "<button onclick=\"getLike('{$post->id}')\" class=\"btn btn-danger\">".$post->countLikes.' likes'."</button>";
     }
     public function likesm($id)
     {
@@ -188,6 +188,6 @@ class PostController extends Controller
 
 
         $post->save();
-        return "<button onclick=\"getMessage{$post->id}()\" class=\"btn btn-danger\">".$post->countLikes.' likes'."</button>";
+        return "<button onclick=\"getLike('{$post->id}')\" class=\"btn btn-danger\">".$post->countLikes.' likes'."</button>";
     }
 }

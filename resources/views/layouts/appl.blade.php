@@ -10,6 +10,15 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <title>{{config('app.name','AppOleg')}}</title>
 
+<style>
+
+    #hover:hover {
+    background-color: rgb(216,191,216);
+        border-radius: 15%;
+        transition: 0.5s;
+
+    }
+</style>
 
 
     <!-- Fonts -->
