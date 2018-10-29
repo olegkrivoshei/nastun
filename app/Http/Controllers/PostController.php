@@ -53,7 +53,7 @@ class PostController extends Controller
         $this->validate($request,
             ['title' => 'required',
                 'body' => 'required',
-                'cover_image' => 'image|nullable|max:1999']);
+                'cover_image' => 'image|nullable|max:9999']);
 
         //handle file upload
         if ($request->hasFile('cover_image')) {
@@ -178,7 +178,10 @@ class PostController extends Controller
 
 
         $post->save();
-        return "<button onclick=\"getLike('{$post->id}')\" class=\"btn btn-danger\">".$post->countLikes.' likes'."</button>";
+
+        return "<div onclick=\"getLike('{$post->id}')\"><h4 class=\"d-flex justify-content-between align-items-center mb-3\">                                            <span class=\"badge badge-secondary badge-pill\"
+        style=\" margin-top:30%; background-color: rgba(216,191,216,0.7)!important;\">&#x1f497 {$post->countLikes}</span></h4></div>";
+
     }
     public function likesm($id)
     {
@@ -188,6 +191,7 @@ class PostController extends Controller
 
 
         $post->save();
-        return "<button onclick=\"getLike('{$post->id}')\" class=\"btn btn-danger\">".$post->countLikes.' likes'."</button>";
+        return "<div onclick=\"getLike('{$post->id}')\"><h4 class=\"d-flex justify-content-between align-items-center mb-3\">                                            <span class=\"badge badge-secondary badge-pill\"
+        style=\" margin-top:30%;    background-color: rgba(216,191,216,0.7)!important;\">{$post->countLikes} &#x1f497</span></h4></div>";
     }
 }

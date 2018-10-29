@@ -10,6 +10,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <title>{{config('app.name','AppOleg')}}</title>
 
+
 <style>
 
     #hover:hover {
@@ -18,6 +19,7 @@
         transition: 0.5s;
 
     }
+
 </style>
 
 
